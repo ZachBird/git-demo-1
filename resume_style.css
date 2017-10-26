@@ -6,11 +6,13 @@ body{
     background: rgba(8, 11, 11, 0.7);
 }
 .topNavWrap {
+    position: fixed;
+    width: 100%;
     padding: 10px 0;
+    z-index: 3;
 }
 .topNavBar {
-    /* position: fixed; */
-    /* width: 100%; */
+    max-width: 1550px;
     margin: 0 auto;
     padding: 10px 15px;
 }
@@ -77,22 +79,46 @@ body{
 } */
 
 .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 515px;
-    background: url('./lina.png');
-    background-position: 0 -70px;
-    /* background-size: cover; */
+    background: url('./littleFox.png');
+    /* background-position: 0 -70px; */
+    background-size: cover;
+    z-index: 1;
+}
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .banner .mask {
     height: 515px;
-    background: rgba(0, 0, 0, 0.7);
+    
 }
 
-.userCard {
-    border: 1px solid #ffffff;
+.about {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    position: relative;
+    top: 170px;
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
+    z-index: 2;
+    /* transform: translate(-50%, -50%);     */
+}
+.userCard {
+    border: 1px solid #ffffff;
     background: #ffffff;
+    padding: 57px 50px 15px 50px
 }
 
 .userCard .welcome {
@@ -101,22 +127,53 @@ body{
     display: inline-block;
     padding: 4px 15px;
     line-height: 22px;
+    border-radius: 2px;
 }
 
 .userCard .triangle {
+    position: relative;
+    left: 6px;
     display: block;
     border: 10px solid lightblue;
     width: 0px;
-    border-top-color: pink;
-    border-left-color: lightgreen;
-    border-right-color: lightseagreen;
-    border-bottom-width: 20px;
+    border-top-color: transparent;
+    border-top-width: 0;
+    border-left-color: #e86767;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-bottom-width: 10px;
 }
-
-.uesrCard .picture {
+.about .pictureAndText {
+    
+}
+.about .picture {
     float: left;
 }
 
-.userCard .text {
+.about .text {
     float: left;
+    margin-left: 65px;
+}
+
+.text .profile h1 {
+    margin: 22px 0;
+}
+
+.text .profile p {
+    margin: 16px 0;
+}
+
+.text .profile hr {
+    margin: 20px 0;
+}
+
+.text .profile dl dt,
+.text .profile dl dd {
+    float: left;
+    width: 50%;
+}
+
+.media {
+    position: relative;
+    bottom: 0;
 }
