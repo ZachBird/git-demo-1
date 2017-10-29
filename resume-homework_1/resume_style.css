@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgba(8, 11, 11, 0.7);
+}
+.topNavWrap {
+    position: fixed;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 3;
+}
+.topNavBar {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+.topNavBar a {
+    text-decoration: none;
+}
+.topNavBar .navLogo {
+    float: left;
+    font-family: 'Arial Black';
+    font-size: 28px;
+    padding-top: 1px;
+    line-height: 50px;
+}
+.topNavBar .navLogo .rs {
+    color: #e86767;
+    margin-right: 4px;
+}
+.topNavBar .navLogo .card {
+    color: #9a9da2;
+}
+.topNavBar .navContent {
+    float: right;
+    font-size: 15px;
+    padding-top: 2px;
+}
+
+.topNavBar .navContent ul > li {
+    list-style: none;
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+    padding: 12px 0;
+}
+.clearfix::after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.topNavBar .navContent ul > li:hover {
+    border-bottom: 3px solid #e86767;
+    transition: border-bottom 0.2s;
+}
+
+.topNavBar .navContent ul > li > a {
+    color: rgba(255, 255, 255, .7);
+    font-weight: bold;
+}
+
+/* 上面是第一次CSS作业 做到NavBar */
+
+/* .topNavBar .navContent ul > li > a:after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 0;
+    height: 3px;
+    border-radius: 10px;
+    transition: width 0.8s;
+    background-color: #e86767;
+} */
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 515px;
+    background: url('./littleFox.png');
+    /* background-position: 0 -70px; */
+    background-size: cover;
+    z-index: 1;
+}
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.banner .mask {
+    height: 515px;
+    
+}
+
+.about {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    position: relative;
+    top: 170px;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+    /* transform: translate(-50%, -50%);     */
+}
+.userCard {
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    padding: 57px 50px 15px 50px
+}
+
+.userCard .welcome {
+    background: #e86767;
+    color: #ffffff;
+    display: inline-block;
+    padding: 4px 15px;
+    line-height: 22px;
+    border-radius: 2px;
+}
+
+.userCard .triangle {
+    position: relative;
+    left: 6px;
+    display: block;
+    border: 10px solid lightblue;
+    width: 0px;
+    border-top-color: transparent;
+    border-top-width: 0;
+    border-left-color: #e86767;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-bottom-width: 10px;
+}
+.about .pictureAndText {
+    
+}
+.about .picture {
+    float: left;
+}
+
+.about .text {
+    float: left;
+    margin-left: 65px;
+}
+
+.text .profile h1 {
+    margin: 22px 0;
+}
+
+.text .profile p {
+    margin: 16px 0;
+}
+
+.text .profile hr {
+    margin: 20px 0;
+}
+
+.text .profile dl dt,
+.text .profile dl dd {
+    float: left;
+    width: 50%;
+}
+
+.media {
+    position: relative;
+    bottom: 0;
+}
