@@ -4,9 +4,10 @@
 }
 a {
     text-decoration: none;
+    color: #000;
 }
 body{
-    background: rgba(8, 11, 11, 0.7);
+    background: #EFEFEF;
 }
 .topNavWrap {
     position: fixed;
@@ -105,13 +106,16 @@ body{
     max-width: 940px;
     margin-top: -344px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;    
     /* transform: translate(-50%, -50%);     */
+}
+.userCardWrap {
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.35);
 }
 .userCard {
     border: 1px solid #ffffff;
     background: #ffffff;
-    padding: 50px 50px 30px 50px
+    padding: 50px 50px 30px 50px;
 }
 .userCard .pictureAndText {
     padding: 5px 0;
@@ -147,7 +151,7 @@ body{
     border-bottom-width: 10px;
 }
 
-.about .text {
+.pictureAndText .text {
     float: left;
     width: 55%;
     margin-left: 60px;
@@ -205,4 +209,23 @@ body{
     vertical-align: top;
     fill: #fff;
     overflow: hidden;
+}
+main .downloadButton {
+    text-align: center;
+}
+main .downloadResume {
+    display: inline-block;
+    border: 1px solid #CDCFD1;
+    border-radius: 2px;
+    color: #3D4451;
+    background-color: #EFEFEF;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+    margin: 32px 0;
+    padding: 21px 55px;
+    transition: box-shadow .25s;
+}
+main .downloadResume:hover {
+    box-shadow: 0px 5px 18px -3px rgba(0,0,0,0.4);
 }
