@@ -6,20 +6,20 @@
     <script src='//at.alicdn.com/t/font_457419_rqct18gg6meu3di.js'></script>
   </head>
   <body>
-    <div class="topNavWrap">
+    <div id="topNavigator" class="topNavWrap">
       <div class="topNavBar clearfix">
           <a class="navLogo" href="#" alt="logo">
             <span class="rs">RS</span><span class="card">card</span>
           </a>
-        <nav class="navContent">
+        <nav id="topNavContent" class="navContent">
           <ul class="clearfix">
-            <li><a href="#">关于</a></li>
-            <li><a href="#">技能</a></li>
-            <li><a href="#">作品</a></li>
-            <li><a href="#">博客</a></li>
-            <li><a href="#">日历</a></li>
-            <li><a href="#">联系方式</a></li>
-            <li><a href="#">其他</a></li>
+            <li><a class="topNavContent" href="#">关于</a></li>
+            <li><a class="topNavContent" href="#">技能</a></li>
+            <li><a class="topNavContent" href="#">作品</a></li>
+            <li><a class="topNavContent" href="#">博客</a></li>
+            <li><a class="topNavContent" href="#">日历</a></li>
+            <li><a class="topNavContent" href="#">联系方式</a></li>
+            <li><a class="topNavContent" href="#">其他</a></li>
           </ul>
         </nav>
       </div>
@@ -90,41 +90,101 @@
         </footer>
       </div>
       <p class="downloadButton">
-        <a class="downloadResume" href="#">下载 PDF 简历</a>
+        <a class="downloadResume" href="./LikeAndLove.md" target='_blank' download="">下载 PDF 简历</a>
       </p>
 
-      <p>
-        方应杭， 资深前端工程师，资深前端讲师，现在在 饥人谷 教前端课程。<br>
-        技能：前端开发，Rails 开发，Node.js 开发
+      <p class="selfIntroduction">
+        伯德：资深咸鱼，相貌平平，并无特长，爱玩游戏，好看电影，丧的一逼，扶不上墙。<br>
+        <br>习性：前端开发，水的一逼；各种电影，略知一二；肝起游戏，一个顶俩。
       </p>
     </main>
-    <section>
+    <section class="skills">
         <h2>技能</h2>
-        <ol>
-          <li>HTML 5 &amp; CSS 3</li>
-          <li>JavaScript</li>
-          <li>jQuery</li>
-          <li>Vue</li>
-          <li>React</li>
-          <li>HTTP</li>
+        <ol class="clearfix">
+          <li>
+            <h3>HTML 5 &amp; CSS 3</h3>
+            <div class="progressBar">
+              <div class="progress"></div>
+            </div>
+          </li>
+          <li>
+              <h3>JavaScript</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 60%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>jQuery</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 30%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>Vue</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 15%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>React</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 50%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>HTTP</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 50%;"></div>
+              </div>
+          </li>
         </ol>
       </section>
-      <section>
+      <section class="portfolio">
         <h2>作品集</h2>
-        <nav>
-          <ol>
-            <li>所有</li>
-            <li>框架</li>
-            <li>原生JS&amp;CSS</li>
+        <nav class="portfolioNav">
+          <ol  class="clearfix">
+            <li id="portfolioAll">所有</li>
+            <li id="portfolioFramework">框架</li>
+            <li id="portfolioVallina">原生JS&amp;CSS</li>
           </ol>
+          <div id="portfolioBar" class="portfolioBar state-1">
+            <div class="portfolioBar-inner"></div>
+          </div>
         </nav>
   
-        <div class="jobs">
-          <div class="big"></div>
-          <div class="small"></div>
-          <div class="small"></div>
+        <div class="gallary" style="height: 597px;">
+          <div class="big" style="top: 0; left: 2px;">
+            <img src="/images/picture_1.png" width=606 height=597 alt="picture_1">
+          </div>
+          <div class="small-1" style="top: 0; left: 645px;">
+            <img src="/images/picture_2.png" width=293 height=285 alt="picture_2">
+          </div>
+          <div class="small-2" style="top: 312px; left: 645px;">
+            <img src="/images/picture_3.png" width=293 height=285 alt="picture_3">
+          </div>
         </div>
-  
+        <script>
+          portfolioAll.onclick = function() {
+            portfolioBar.className = 'portfolioBar state-1'
+          }
+          portfolioFramework.onclick = function() {
+            portfolioBar.className = 'portfolioBar state-2'
+          }
+          portfolioVallina.onclick = function() {
+            portfolioBar.className = 'portfolioBar state-3'
+          }
+          window.onscroll = function(){ 
+              let scrollHeight = document.documentElement.scrollTop || document.body.scrollTop
+              let topNavContent = document.querySelectorAll('.topNavBar .navContent ul > li > a')
+              if( scrollHeight > 0 ) { 
+                topNavigator.className = "topNavWrapScrolling"; 
+                topNavContent.setAttribute("style", "color: rgba(83, 89, 101)")
+              } else { 
+                topNavigator.className = "topNavWrap";
+                topNavContent.style.color = 'rgba(255, 255, 255, .7)' 
+              } 
+          } 
+        </script>
       </section>
   </body>
 </html>

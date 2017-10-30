@@ -6,13 +6,27 @@ a {
     text-decoration: none;
     color: #000;
 }
+ul, ol {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
 body{
     background: #EFEFEF;
 }
 .topNavWrap {
-    position: fixed;
+    position: absolute;
     width: 100%;
     padding: 10px 0;
+}
+.topNavWrapScrolling {
+    position: fixed;
+    width: 100%;
+    background: #FFFFFF;
+    color: rgb(83, 89, 101);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23);
+    z-index: 1;
 }
 .topNavBar {
     max-width: 1550px;
@@ -57,7 +71,7 @@ body{
     transition: border-bottom 0.2s;
 }
 
-.topNavBar .navContent ul > li > a {
+.topNavBar .navContent-1 ul > li > a {
     color: rgba(255, 255, 255, .7);
     font-weight: bold;
 }
@@ -110,7 +124,7 @@ body{
     /* transform: translate(-50%, -50%);     */
 }
 .userCardWrap {
-    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.35);
+    box-shadow: 0px 5px 18px 1px rgba(0,0,0,0.25);
 }
 .userCard {
     border: 1px solid #ffffff;
@@ -198,6 +212,7 @@ body{
     margin: 0 15px;
     padding: 5px 0;
     border-radius: 50%;
+    transition: background-color 0.4s;
 }
 .media > a:hover {
     background-color: #CF5D5F;
@@ -219,13 +234,127 @@ main .downloadResume {
     border-radius: 2px;
     color: #3D4451;
     background-color: #EFEFEF;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: bold;
     line-height: 16px;
-    margin: 32px 0;
+    margin: 32px 0 28px;
     padding: 21px 55px;
     transition: box-shadow .25s;
 }
 main .downloadResume:hover {
     box-shadow: 0px 5px 18px -3px rgba(0,0,0,0.4);
+}
+
+.selfIntroduction {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    font-family: "Microsoft JhengHei";
+    font-size: 1.3rem; 
+}
+
+.skills, .portfolio {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px; 
+}
+.skills h2,
+.portfolio h2 {
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    padding-bottom: 30px;
+}
+.skills ol {
+    padding: 43px 50px 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+.skills ol li{
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+}
+.skills ol li:nth-child(even) {
+    float: right;
+}
+
+
+.skills ol li h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+    color: #3d4451;
+}    
+.skills .progressBar {
+    height: 5px;
+    background-color: #FAE1E1;
+    border-radius: 3px;
+    margin: 6px 0 40px;
+}
+.skills .progressBar .progress {
+    background: #E6686A;
+    width: 80%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.portfolio {
+    text-align: center;
+}
+.portfolioNav {
+    display: inline-block;
+    vertical-align: top;
+}
+.portfolioNav ol {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 auto;
+}    
+.portfolioNav ol li {
+    float: left;
+    margin-left: 45px;
+    cursor: pointer;
+}
+.portfolioNav ol li:nth-child(1) {
+    margin-left: 0;
+}    
+
+.portfolioBar {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    height: 5px;  
+    background-color: #FFFFFF;
+    border-radius: 3px;
+}
+.portfolioBar .portfolioBar-inner {
+    height: 100%;
+    background-color: #E6686A;
+    border-radius: 3px;
+    transition: all 0.3s;
+    
+}
+.portfolioBar.state-1 .portfolioBar-inner {
+    width: 15%;
+}
+.portfolioBar.state-2 .portfolioBar-inner {
+    width: 16%;
+    margin-left: 75px;
+}
+.portfolioBar.state-3 .portfolioBar-inner {
+    width: 40%;
+    margin-left: 148px;
+}
+
+.portfolio .gallary {
+    position: relative;
+    margin-bottom: 100px;
+}
+.gallary .big,
+.gallary .small-1,
+.gallary .small-2 {
+    position: absolute;
 }
