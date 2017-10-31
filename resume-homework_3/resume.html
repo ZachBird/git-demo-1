@@ -174,14 +174,12 @@
             portfolioBar.className = 'portfolioBar state-3'
           }
           window.onscroll = function(){ 
-              let scrollHeight = document.documentElement.scrollTop || document.body.scrollTop
+              let scrollHeight = document.body.scrollTop || document.documentElement.scrollTop
               let topNavContent = document.querySelectorAll('.topNavBar .navContent ul > li > a')
               if( scrollHeight > 0 ) { 
                 topNavigator.className = "topNavWrapScrolling"; 
-                topNavContent.setAttribute("style", "color: rgba(83, 89, 101)")
               } else { 
                 topNavigator.className = "topNavWrap";
-                topNavContent.style.color = 'rgba(255, 255, 255, .7)' 
               } 
           } 
         </script>
