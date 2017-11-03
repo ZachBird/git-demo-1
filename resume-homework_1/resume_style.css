@@ -84,7 +84,7 @@ body{
     left: 0;
     width: 100%;
     height: 515px;
-    background: url('/images/littleFox.png');
+    background: url('../images/littleFox.png');
     /* background-position: 0 -70px; */
     background-size: cover;
     z-index: 1;
