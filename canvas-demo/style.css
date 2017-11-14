@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#canvas {
+    background: lightgray;
+    height: 100vh;
+    position: relative;
+}
+
+#painting-area {
+    background: lightgray;
+    /* 不要用CSS控制canvas的宽高 */
+}
+
+#eraser {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background: #a1a1a1 url('../images/bloodborne.png') no-repeat center center;
+    background-size: cover;
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -25,13 +29,50 @@ kbd:hover > button {
 }
 main {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 #kbdWrap {
     display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
 }
 #kbdWrap > div:nth-child(2) {
-    margin: 1em;
+    margin-left: -22px;
 }
 #kbdWrap > div:nth-child(3) {
-    margin: 2em;
+    margin-left: -80px;
+}
+.key {
+    width: 50px;
+    height: 40px;
+    color: #c5c5c5;
+    background: linear-gradient(to bottom, #292929 0%,#111111 100%);
+    border: 1px solid #373737;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 1px #1f2020, 0 3px 0 #080808;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.row {
+    margin: 20px;
+}
+.row .key {
+    margin: 0 10px;
+}
+.key img {
+    position: absolute;
+    bottom: 0px;
+
+    width: 16px; 
+    height: 16px;
+}
+.key .text {
+    position: absolute;
+    left: 4px;
+    top: 2px;
 }
