@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Canvas-Demo</title>
     <link rel="stylesheet" href="./style.css">
@@ -10,7 +10,17 @@
 <body>
     <canvas id="painting-area"></canvas>
     <!-- <div id="canvas"></div> -->
+    <div id="actions" class="actions">
+        
+    </div>
+    <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-pen"></use>
+    </svg>
+    <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-eraser"></use>
+    </svg>
     <button id="eraser">擦擦擦</button>
     <script src="./main.js"></script>
+    <script src="//at.alicdn.com/t/font_478969_57oolptkt6v42t9.js"></script>
 </body>
 </html>

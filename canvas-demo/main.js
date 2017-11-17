@@ -39,7 +39,7 @@ const paintingArea = document.querySelector('#painting-area')
 const context = paintingArea.getContext('2d')//获取二次元的上下文
 const eraser = document.querySelector('#eraser')
 let using = false
-let lastPoint = {x: null, y: null}//存上一次画的最后一个点的位置坐标
+let lastPoint = { x: null, y: null }//存上一次画的最后一个点的位置坐标
 
 function setSize() {
     const pageWidth = document.documentElement.clientWidth
@@ -49,7 +49,7 @@ function setSize() {
 }
 
 setSize()
-window.onresize = function() {
+window.onresize = function () {
     setSize()
 }
 
@@ -80,7 +80,7 @@ window.onresize = function() {
 function drawCircle(x, y, radius) {
     context.strockStyle = 'black'
     context.beginPath()
-    context.arc(x, y, radius, 0, Math.PI*2)
+    context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
 }
 
@@ -94,47 +94,136 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 let eraserEnabled = false
-eraser.onclick = function() {
+// pen.onclick = function(e) {
+
+// }
+// eraser.onclick = function(e) {
+
+// }
+// clear.onclick = function() {
+//     context.clearRect(0, 0, xxx.width, yyy.height);
+// }
+eraser.onclick = function () {
     eraserEnabled = !eraserEnabled
-    if(eraserEnabled) {
+    if (eraserEnabled) {
         eraser.textContent = '画笔'
-    }else{
+    } else {
         eraser.textContent = '擦擦擦'
     }
 }
 
+// red.onclick = function(e) {
+//     context.fillStyle = 'red'
+//     context.strockStyle = 'red'
+//     red.classList.add('active')
+//     green.classList.remove('active')
+//     blue.classList.remove('active')
+// }
+// green.onclick = function(e) {
+//     context.fillStyle = 'green'
+//     context.strockStyle = 'green'
+//     green.classList.add('active')
+//     red.classList.remove('active')
+//     blue.classList.remove('active')
+// }
+// blue.onclick = function(e) {
+//     context.fillStyle = 'blue'
+//     context.strockStyle = 'blue'
+//     blue.classList.add('active')
+//     red.classList.remove('active')
+//     green.classList.remove('active')
+// }
 
-paintingArea.onmousedown = function(e) {
-    let x = e.clientX
-    let y = e.clientY
-    if(eraserEnabled) {
-        using = true
-        // drawCircle(x, y, 3)
-        context.clearRect(x-5, y-5, 40, 40)
-    }else{
-        using = true
-        lastPoint = {x: x, y: y}
+// thin.onclick = function(e) {
+
+// }
+// thick.onclick = function(e) {
+
+// }
+//特性检测
+if(document.body.ontouchstart !== undefined) {
+    //触屏设备
+    paintingArea.ontouchstart = function(e) {
+        let x = e.touches[0].clientX
+        let y = e.touches[0].clientY
+        if (eraserEnabled) {
+            using = true
+            // drawCircle(x, y, 3)
+            context.clearRect(x - 5, y - 5, 40, 40)
+        } else {
+            using = true
+            lastPoint = { x: x, y: y }
+        }
+    }
+    
+    paintingArea.ontouchmove = function(e) {
+        let x = e.touches[0].clientX
+        let y = e.touches[0].clientY
+        if (eraserEnabled) {
+            if (using) {
+                context.clearRect(x - 5, y - 5, 40, 40)
+            }
+        } else {
+            if (using) {
+                let newPoint = { x: x, y: y }
+                drawCircle(x, y, 3)
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
+            }
+        }
+    }
+    
+    paintingArea.ontouchend = function(e) {
+        using = false
+    }
+}else{
+    //非触屏设备
+    paintingArea.onmousedown = function (e) {
+        let x = e.clientX
+        let y = e.clientY
+        if (eraserEnabled) {
+            using = true
+            // drawCircle(x, y, 3)
+            context.clearRect(x - 5, y - 5, 40, 40)
+        } else {
+            using = true
+            lastPoint = { x: x, y: y }
+        }
+    }
+    
+    paintingArea.onmousemove = function (e) {
+        let x = e.clientX
+        let y = e.clientY
+        if (eraserEnabled) {
+            if (using) {
+                context.clearRect(x - 5, y - 5, 40, 40)
+            }
+        } else {
+            if (using) {
+                let newPoint = { x: x, y: y }
+                drawCircle(x, y, 3)
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
+            }
+        }
+    
+    }
+    
+    paintingArea.onmouseup = function (e) {
+        using = false
     }
 }
 
-paintingArea.onmousemove = function(e) {
-    let x = e.clientX
-    let y = e.clientY
-    if(eraserEnabled) {
-        if(using) {
-            context.clearRect(x-5, y-5, 40, 40)
-        }
-    }else{
-        if(using) {
-            let newPoint = {x: x, y: y}
-            drawCircle(x, y, 3)
-            drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-            lastPoint = newPoint
-        }
-    }
-   
-}
 
-paintingArea.onmouseup = function(e) {
-    using = false
-}
+// //手机端适配
+// paintingArea.ontouchstart = function(e) {
+
+// }
+
+// paintingArea.ontouchmove = function(e) {
+
+// }
+
+// paintingArea.ontouchend = function(e) {
+
+// }
