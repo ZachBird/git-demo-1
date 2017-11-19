@@ -8,26 +8,28 @@ let hash = {
     'q': 'qq.com',
     'w': 'weibo.com',
     'e': 'ele.me',
-    'r': 'renren.com',
-    't': 'tianya.com',
+    'r': 'reactjs.org',
+    't': 'taobao.com',
     'y': 'youtube.com',
-    'u': 'uc.com',
-    'i': 'iqiyi.com',
+    'u': 'cn.ubuntu.com',
+    'i': 'iconfont.cn',
     'o': 'opera.com',
-    'p': undefined,
-    'a': 'acfun.com',
+    'p': 'python.org',
+    'a': 'acfun.cn',
     's': 'sohu.com',
+    'd': 'douyu.com/directory/game/DOTA2',
     'j': 'jscode.me',
     'z': 'sohu.com',
     'x': 'xiedaimala.com',
+    'b': 'bilibili.tv',
     'm': 'www.mcdonalds.com.cn',
 }
 //取出loaclStrotage
-let hashInLocalStorage = acfun('zzz')
+let hashInLocalStorage = getLocalStorage('websitesInfo')
 if(hashInLocalStorage) {
     hash = hashInLocalStorage
 }
-function acfun(name){
+function getLocalStorage(name){
    return JSON.parse(localStorage.getItem(name) || 'null')
 }
 //2. 生成键盘
@@ -40,11 +42,7 @@ function tag(tagName, attrbutes) {
     return element
 }
 
-for(let index = 0; index < keys.length; index++) {
-
-}
-var index = 0
-while(index < keys.length) { //0 1 2
+for(let index = 0; index < keys.length; index++) {// 0, 1, 2
     var div = tag('div', {className: 'row'})
     div.className = 'row'
     kbdWrap.appendChild(div)
@@ -62,39 +60,53 @@ while(index < keys.length) { //0 1 2
             var button2 = e.target
             var img2 = button2.previousSibling //拿到前一个节点
             var key = e.target.id
-            var x = prompt('aaa')
-            hash[key] = x//hash变更
-            img2.src = 'http://' + key +'/favicon.ico'
-            img2.onerror = function(e) {
-                e.target.src = ''//默认icon
+            var newURL = prompt('输入变更的网址')
+            if(newURL) {
+                hash[key] = newURL//hash变更
+                window.event? window.event.cancelBubble = true : e.stopPropagation()//阻止冒泡
+                location.reload()//刷新页面
+            }else{
+                e.preventDefault()
+                window.event? window.event.cancelBubble = true : e.stopPropagation()
             }
-            localStorage.setItem('zzz', JSON.stringify(hash))
-            console.log(hash)
+            img2.src = '//' + key + '/favicon.ico'
+            img2.onerror = function(e) {
+                e.target.src = '../images/eye.png'//默认icon
+            }
+            localStorage.setItem('websitesInfo', JSON.stringify(hash))
         }
        
         var img = tag('img')
         if(hash[row[index2]]){
-            img.src = 'http://' + hash[row[index2]] +'/favicon.ico'
+            img.src = '//' + hash[row[index2]] +'/favicon.ico' ? '//' + hash[row[index2]] +'/favicon.ico' : null
         }else{
-            img.src = ''//默认的icon
+            img.src = '../images/eye.png'//默认的icon
         }
         img.onerror = function(e) {
-            e.target.src = ''//默认icon
+            e.target.src = '../images/eye.png'//默认icon
         }
         // button.addEventListener('click', (e) => {
         //     console.log(e.target.id)
         // })
-        
-        var kbd = tag('kbd')
-        kbd.className = 'key'
 
+        var kbd = tag('kbd')
+        kbd.addEventListener('click', e => {
+            let key = e.srcElement.id
+            let website = hash[key]
+            if(website){
+                window.open(`http://${website}`, '_blank')
+            }else{
+                alert('This key not set URL yet')
+            }
+        })
+        kbd.className = 'key'
+        kbd.id = row[index2]
         kbd.appendChild(span)
         kbd.appendChild(img)
         kbd.appendChild(button)
         div.appendChild(kbd)
         index2 += 1
     }
-    index += 1
 }
 //3.监听键盘
 //添加事件监听
@@ -102,7 +114,11 @@ while(index < keys.length) { //0 1 2
 //     console.log('123')
 // })
 document.onkeypress = function(e) {
-    var key = e.key
-    var website = hash[key]
-    window.open(`http://${website}`, '_blank')
+    let key = e.key
+    let website = hash[key]
+    if(website){
+        window.open(`http://${website}`, '_blank')
+    }else{
+        alert('This key not set URL yet')
+    }
 }

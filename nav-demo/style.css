@@ -20,9 +20,13 @@ kbd {
 }
 kbd > button {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 1px;
+    top: 1px;
     display: none;
+    border-radius: 25%;
+    background: #292929;
+    color: lightgrey;
+    border-width: 1px;
 }
 kbd:hover > button {
     display: inline-block;
