@@ -69,7 +69,7 @@ for(let index = 0; index < keys.length; index++) {// 0, 1, 2
                 e.preventDefault()
                 window.event? window.event.cancelBubble = true : e.stopPropagation()
             }
-            img2.src = '//' + key + '/favicon.ico'
+            img2.src = 'http://' + key + '/favicon.ico'
             img2.onerror = function(e) {
                 e.target.src = '../images/eye.png'//默认icon
             }
