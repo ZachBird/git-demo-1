@@ -11,13 +11,11 @@ let hash = {
     'r': 'reactjs.org',
     't': 'taobao.com',
     'y': 'youtube.com',
-    'u': 'cn.ubuntu.com',
     'i': 'iconfont.cn',
     'o': 'opera.com',
-    'p': 'python.org',
     'a': 'acfun.cn',
     's': 'sohu.com',
-    'd': 'douyu.com/directory/game/DOTA2',
+    'd': 'douyu.tv',
     'j': 'jscode.me',
     'z': 'sohu.com',
     'x': 'xiedaimala.com',
@@ -90,6 +88,8 @@ for(let index = 0; index < keys.length; index++) {// 0, 1, 2
         // })
 
         var kbd = tag('kbd')
+        kbd.className = 'key'
+        kbd.id = row[index2]
         kbd.addEventListener('click', e => {
             let key = e.srcElement.id
             let website = hash[key]
@@ -99,8 +99,6 @@ for(let index = 0; index < keys.length; index++) {// 0, 1, 2
                 alert('This key not set URL yet')
             }
         })
-        kbd.className = 'key'
-        kbd.id = row[index2]
         kbd.appendChild(span)
         kbd.appendChild(img)
         kbd.appendChild(button)
