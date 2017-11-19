@@ -78,7 +78,7 @@ for(let index = 0; index < keys.length; index++) {// 0, 1, 2
        
         var img = tag('img')
         if(hash[row[index2]]){
-            img.src = '//' + hash[row[index2]] +'/favicon.ico' ? '//' + hash[row[index2]] +'/favicon.ico' : null
+            img.src = 'http://' + hash[row[index2]] +'/favicon.ico' ? '//' + hash[row[index2]] +'/favicon.ico' : null
         }else{
             img.src = '../images/eye.png'//默认的icon
         }
