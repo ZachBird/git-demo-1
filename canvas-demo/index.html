@@ -11,15 +11,24 @@
     <canvas id="painting-area"></canvas>
     <!-- <div id="canvas"></div> -->
     <div id="actions" class="actions">
-        
+        <!-- <button id="eraser">擦擦擦</button>
+        <button id="pen">画笔</button> -->
+        <svg id='pen' class="icon active" aria-hidden="true">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id='eraser' class="icon" aria-hidden="true">
+            <use xlink:href="#icon-eraser"></use>
+        </svg>
     </div>
-    <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-pen"></use>
-    </svg>
-    <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-eraser"></use>
-    </svg>
-    <button id="eraser">擦擦擦</button>
+    <div>
+        <ol class="colors">
+            <li id="black" class="black active"></li>
+            <li id="red" class="red"></li>
+            <li id="green" class="green"></li>
+            <li id="blue" class="blue"></li>
+        </ol>
+    </div>
+
     <script src="./main.js"></script>
     <script src="//at.alicdn.com/t/font_478969_57oolptkt6v42t9.js"></script>
 </body>

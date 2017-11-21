@@ -2,7 +2,10 @@
     margin: 0;
     padding: 0;
 }
-.body{
+ul,ol{
+    list-style: none;
+}
+body{
     overflow: hidden;
 }
 #canvas {
@@ -16,11 +19,11 @@
     /* 不要用CSS控制canvas的宽高 */
 }
 
-#eraser {
+/* #eraser {
     position: fixed;
     bottom: 0;
     left: 0;
-}
+} */
 
 .icon {
     width: 1em; height: 1em;
@@ -35,6 +38,17 @@
     left: 0;
     padding: 20px;
 }
+
+/* .actions > #pen {
+    display: none;
+}
+.actions.painting > #pen{
+    display: inline-block;
+}
+.actions.painting > #eraser{
+    display: none;
+} */
+
 .actions svg {
     width: 1.5em;
     height: 1.5em;
@@ -56,7 +70,12 @@
     height: 20px;
     border-radius: 50%;
     border: 1px solid grey;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     margin: 10px 0;
+    transition: all 0.3s;
+}
+.colors > li.black{
+    background: black;
 }
 .colors > li.red{
     background: red;

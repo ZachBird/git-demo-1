@@ -38,6 +38,7 @@
 const paintingArea = document.querySelector('#painting-area')
 const context = paintingArea.getContext('2d')//获取二次元的上下文
 const eraser = document.querySelector('#eraser')
+const pen = document.querySelector('#pen')
 let using = false
 let lastPoint = { x: null, y: null }//存上一次画的最后一个点的位置坐标
 
@@ -78,7 +79,7 @@ window.onresize = function () {
 // context.closePath()
 
 function drawCircle(x, y, radius) {
-    context.strockStyle = 'black'
+    // context.strockStyle = 'black'
     context.beginPath()
     context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
@@ -94,45 +95,64 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 let eraserEnabled = false
-// pen.onclick = function(e) {
-
-// }
-// eraser.onclick = function(e) {
-
-// }
+pen.onclick = function(e) {
+    eraserEnabled = false
+    pen.classList.add('active')
+    eraser.classList.remove('active')
+}
+eraser.onclick = function(e) {
+    eraserEnabled = true
+    eraser.classList.add('active')
+    pen.classList.remove('active')
+}
 // clear.onclick = function() {
 //     context.clearRect(0, 0, xxx.width, yyy.height);
 // }
-eraser.onclick = function () {
-    eraserEnabled = !eraserEnabled
-    if (eraserEnabled) {
-        eraser.textContent = '画笔'
-    } else {
-        eraser.textContent = '擦擦擦'
-    }
+// eraser.onclick = function () {
+//     eraserEnabled = true
+//     actions.className = 'actions painting'
+//     // if (eraserEnabled) {
+//     //     eraser.textContent = '画笔'
+//     // } else {
+//     //     eraser.textContent = '擦擦擦'
+//     // }
+// }
+// pen.onclick = function () {
+//     eraserEnabled = false
+//     actions.className = 'actions'
+// }
+black.onclick = function(e) {
+    context.fillStyle = 'black'
+    context.strokeStyle = 'black'
+    black.classList.add('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
 }
-
-// red.onclick = function(e) {
-//     context.fillStyle = 'red'
-//     context.strockStyle = 'red'
-//     red.classList.add('active')
-//     green.classList.remove('active')
-//     blue.classList.remove('active')
-// }
-// green.onclick = function(e) {
-//     context.fillStyle = 'green'
-//     context.strockStyle = 'green'
-//     green.classList.add('active')
-//     red.classList.remove('active')
-//     blue.classList.remove('active')
-// }
-// blue.onclick = function(e) {
-//     context.fillStyle = 'blue'
-//     context.strockStyle = 'blue'
-//     blue.classList.add('active')
-//     red.classList.remove('active')
-//     green.classList.remove('active')
-// }
+red.onclick = function(e) {
+    context.fillStyle = 'red'
+    context.strokeStyle = 'red'
+    red.classList.add('active')
+    black.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
+green.onclick = function(e) {
+    context.fillStyle = 'green'
+    context.strokeStyle = 'green'
+    green.classList.add('active')
+    black.classList.remove('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+}
+blue.onclick = function(e) {
+    context.fillStyle = 'blue'
+    context.strokeStyle = 'blue'
+    blue.classList.add('active')
+    black.classList.remove('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
+}
 
 // thin.onclick = function(e) {
 
