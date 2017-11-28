@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bird的个人简历</title>
+    <link rel="stylesheet" href="./resume_style.css">
+    <link rel="stylesheet" href="./loading.css">
+    <script src='//at.alicdn.com/t/font_457419_rqct18gg6meu3di.js'></script>
+    <style>
+      .site-welcome{
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: #888;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+      }
+      .site-welcome.active{
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="siteWelcome" class="site-welcome active">
+      <div class="loading"></div>
+    </div>
+    <div id="topNavigator" class="topNavWrap">
+      <div class="topNavBar clearfix">
+          <a class="navLogo" href="#" alt="logo">
+            <span class="rs">RS</span><span class="card">card</span>
+          </a>
+        <nav id="topNavContent" class="navContent">
+          <ul class="clearfix">
+            <li>
+              <a class="topNavContent" href="#">关于</a>
+            </li>
+            <li>
+              <a class="topNavContent" href="#">技能</a>
+            </li>
+            <li class="menuTigger">
+              <a class="topNavContent " href="#">作品</a>
+              <ul class="submenu">
+                <li>作品1</li>
+                <li>作品2</li>
+                <li>作品3</li>
+              </ul>
+            </li>
+            <li class="menuTigger">
+              <a class="topNavContent " href="#">博客</a>
+              <ul class="submenu">
+                <li>博客1</li>
+                <li>博客2</li>
+                <li>博客3</li>
+              </ul>
+            </li>
+            <li>
+              <a class="topNavContent" href="#">日历</a>
+            </li>
+            <li>
+              <a class="topNavContent" href="#">联系方式</a>
+            </li>
+            <li>
+              <a class="topNavContent" href="#">其他</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="mask"></div>
+    </div>
+    <main class="about">
+      <div class='userCardWrap'>
+      <div class="userCard">
+        <div class="pictureAndText clearfix">
+          <div class="picture">
+            <img src="../images/kamui.png" width="299" height="347" alt="头像">
+          </div>
+          <div class="text">
+            <div class="profile">
+              <span class="welcome">Hello</span>
+              <span class="triangle"></span>
+              
+              <h1>鲜于伯德</h1>
+              <p>前端开发工程师</p>
+              <hr>
+              <dl>
+                <dt>年龄</dt>
+                <dd>23</dd>
+                <dt>所在城市</dt>
+                <dd>宁夏银川</dd>
+                <dt>邮箱</dt>
+                <dd>zhb_artemis@126.com</dd>
+                <dt>手机</dt>
+                <dd>13812345678</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="media">
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-qq"></use>
+              </svg>
+          </a> 
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-wechat"></use>
+              </svg>
+          </a>
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-sina"></use>
+              </svg>
+          </a>
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-github"></use>
+              </svg>
+          </a>
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-googleplus"></use>
+              </svg>
+          </a>
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-steam"></use>
+              </svg>
+          </a>
+        </footer>
+      </div>
+      <p class="downloadButton">
+        <a class="downloadResume" href="./LikeAndLove.md" target='_blank' download="">下载 PDF 简历</a>
+      </p>
+
+      <p class="selfIntroduction">
+        伯德：资深咸鱼，相貌平平，并无特长，爱玩游戏，好看电影，丧的一逼，扶不上墙。<br>
+        <br>习性：前端开发，水的一逼；各种电影，略知一二；肝起游戏，一个顶俩。
+      </p>
+    </main>
+    <section class="skills">
+        <h2>技能</h2>
+        <ol class="clearfix">
+          <li>
+            <h3>HTML 5 &amp; CSS 3</h3>
+            <div class="progressBar">
+              <div class="progress"></div>
+            </div>
+          </li>
+          <li>
+              <h3>JavaScript</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 60%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>jQuery</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 30%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>Vue</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 15%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>React</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 50%;"></div>
+              </div>
+          </li>
+          <li>
+              <h3>HTTP</h3>
+              <div class="progressBar">
+                <div class="progress" style="width: 50%;"></div>
+              </div>
+          </li>
+        </ol>
+      </section>
+      <section class="portfolio">
+        <h2>作品集</h2>
+        <nav class="portfolioNav">
+          <ol  class="clearfix">
+            <li id="portfolioAll">所有</li>
+            <li id="portfolioFramework">框架</li>
+            <li id="portfolioVallina">原生JS&amp;CSS</li>
+          </ol>
+          <div id="portfolioBar" class="portfolioBar state-1">
+            <div class="portfolioBar-inner"></div>
+          </div>
+        </nav>
+  
+        <div class="gallary" style="height: 597px;">
+          <div class="big" style="top: 0; left: 2px;">
+            <img src="../images/picture_1.png" width=606 height=597 alt="picture_1">
+          </div>
+          <div class="small-1" style="top: 0; left: 645px;">
+            <img src="../images/picture_2.png" width=293 height=285 alt="picture_2">
+          </div>
+          <div class="small-2" style="top: 312px; left: 645px;">
+            <img src="../images/picture_3.png" width=293 height=285 alt="picture_3">
+          </div>
+        </div>
+        <script>
+          setTimeout(() => {
+            siteWelcome.classList.remove('active')
+          }, 1500);
+          
+          portfolioAll.onclick = function() {
+            portfolioBar.className = 'portfolioBar state-1'
+          }
+          portfolioFramework.onclick = function() {
+            portfolioBar.className = 'portfolioBar state-2'
+          }
+          portfolioVallina.onclick = function() {
+            portfolioBar.className = 'portfolioBar state-3'
+          }
+          window.onscroll = function(){ 
+              let scrollHeight = document.body.scrollTop || document.documentElement.scrollTop
+              let topNavContent = document.querySelectorAll('.topNavBar .navContent ul > li > a')
+              if( scrollHeight > 0 ) { 
+                topNavigator.className = "topNavWrapScrolling"; 
+              } else { 
+                topNavigator.className = "topNavWrap";
+              } 
+          } 
+          let liTags = document.querySelectorAll('nav.menu > ul > li')
+          for(let i=0; i < liTags.length; i++){
+            liTags[i].onmouseenter = function(e){
+                e.currentTarget.classList.add('active')
+                //nextSlbling 获取下一个兄弟节点
+                //nodeType 节点类型
+              }
+            liTags[i].onmouseleave = function(e){
+                e.currentTarget.classList.remove('active')
+              }
+          }
+          let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+          for(let i=0; i<aTags.length; i++){
+            aTags[i].onclick = function(e){
+              e.preventDefault()
+              let a = x.currentTarget
+              let href = a.getAttribute('href')//属性是什么就是什么
+              // console.log(a.href)//被浏览器处理过的href
+              let element = document.querySelector(href)
+              // debugger //打断点
+              let top = element.offsetTop
+              window.scrollTo(0, top - 80)
+            }
+          }
+        </script>
+      </section>
+  </body>
+</html>
