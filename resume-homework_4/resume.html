@@ -32,7 +32,7 @@
         <nav id="topNavContent" class="navContent">
           <ul class="clearfix">
             <li>
-              <a class="topNavContent" href="#">关于</a>
+              <a class="topNavContent" href="#about">关于</a>
             </li>
             <li>
               <a class="topNavContent" href="#">技能</a>
@@ -205,6 +205,7 @@
             <img src="../images/picture_3.png" width=293 height=285 alt="picture_3">
           </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
         <script>
           setTimeout(() => {
             siteWelcome.classList.remove('active')
@@ -227,8 +228,34 @@
               } else { 
                 topNavigator.className = "topNavWrap";
               } 
+              // console.log("window.scrollY", window.scrollY)
+              let specialTags = document.querySelectorAll("[data-x]")// 获取有属性data-x 的div 标签
+              let minIndex = 0
+
+              for (let i = 1; i < specialTags.length; i++){
+                // console.log("specialTag[i].offsetTop", specialTag[i].offsetTop)
+                if(Math.abs(specialTag[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex] - window.scrollY)){
+                    minIndex = i
+                }
+              }
+              // minIndex 就是 
+              
+              for (let i = 0; i < specialTags.length; i++){
+                specialTags[i].classList.remove('active')
+              }
+              specialTags[minIndex].classList.add('active')
+              // console.log(minIndex)
+
+              let id = specialTags[minIndex].id
+              let a = document.querySelector(`a[href="#${id}"]`)
+              let li = a.parentNode
+              let brothersAndMyself = li.parentNode.children
+              for (let i = 0; i < specialTags.length; i++){
+                brothersAndMyself[i].classList.remove('active')
+              }
+              li.classList.add('active')
           } 
-          let liTags = document.querySelectorAll('nav.menu > ul > li')
+          let liTags = document.querySelectorAll('nav.navContent > ul > li')
           for(let i=0; i < liTags.length; i++){
             liTags[i].onmouseenter = function(e){
                 e.currentTarget.classList.add('active')
@@ -239,17 +266,49 @@
                 e.currentTarget.classList.remove('active')
               }
           }
-          let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+          let aTags = document.querySelectorAll('nav.navContent > ul > li > a')
+          let animate = (time) => {
+            requestAnimationFrame(animate)
+            TWEEN.update(time)
+          }
+          requestAnimationFrame(animate)
           for(let i=0; i<aTags.length; i++){
             aTags[i].onclick = function(e){
               e.preventDefault()
-              let a = x.currentTarget
-              let href = a.getAttribute('href')//属性是什么就是什么
+              let a = e.currentTarget
+              let href = a.getAttribute('href')//属性是什么就是什么 '#siteAbout'
               // console.log(a.href)//被浏览器处理过的href
               let element = document.querySelector(href)
               // debugger //打断点
-              let top = element.offsetTop
-              window.scrollTo(0, top - 80)
+              let top = element.offsetTop //元素距离顶部的距离
+
+              // let n = 25 // 一共动多少次
+              // let duration = 500 / n // 多少时间动一次
+              let currentTop = window.scrollY //浏览器当前滚动的距离
+              let targetTop = top - 80
+              // let distance = (targetTop - currentTop) / n // targetTop - currentTop 就是要滚动的距离
+              // let i = 0
+              // let id = setInterval(() => {
+              //   if(i === n){
+              //     window.clearInterval(id)
+              //     return
+              //   }
+              //   i += 1
+              //   window.scrollTo(0, currentTop - distance * i)
+              // })
+              let s = targetTop - currentTop //路程
+              let coords = { y: currentTop } //起始位置
+              let t = Math.abs((s / 100) * 300) // 时间
+              if (t > 500){ t = 500 }
+              let tween = new TWEEN.Tween(coords) // 起始位置
+                        .to({ y: targetTop }, t)  //结束位置和时间
+                        .easing(TWEEN.Easing.Quadratic.InOut) //缓动类型
+                        .onUpdate(() => {
+                            window.scrollTo(0, coords.y) // 如何更新界面
+                          }
+                        )
+                        .start() //开始缓动
+            
             }
           }
         </script>
